@@ -1,0 +1,16 @@
+main {
+    flex: 1;
+    padding: 2rem;
+    color: #dddddd;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    letter-spacing: 1px;
+}
+
+.mainTitle {
+    font-size: 10rem;
+    font-family: 'Dancing Script', cursive;
+}
