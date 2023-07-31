@@ -24,13 +24,19 @@ generateMenuList = function (data) {
             data[i].name + ' - ' +
             data[i].category + 
             '</span>' +
-            //'<a href="' + basicUrl +'/menu/' + data[i].restaurantId + '">' +
-            '<button type="button" class="btn btn-primary openMenu" value="' + data[i].restaurantId + '">Wyświetl Menu</button>' +
-            //'</a>' +
+            '<button type="button" class="btn btn-primary openMenu" value="' + data[i].menuId + '">Wyświetl Menu</button>' +
             '</div>' +
             '</li>';
     }
     htmlToInsert += '</ul>';
     $(".mainContext").html(htmlToInsert);
-    
+    handleShowMenuButton();
+}
+
+handleShowMenuButton = function () {
+
+    $(".openMenu").on("click", function () {
+        let restaurant = $(this).val();
+        window.location = 'menuList.html?restaurantId=' + restaurant;
+    });
 }

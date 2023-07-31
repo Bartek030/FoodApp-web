@@ -23,19 +23,19 @@ generateRestaurantList = function (data) {
             data[i].name + ' - ' +
             data[i].addressDTO.city + ', ul. ' + data[i].addressDTO.street + ' ' + data[i].addressDTO.number +
             '</span>' +
-            '<button type="button" class="btn btn-primary openMenu" value="' + data[i].restaurantId + '">Wyświetl Liste Menu</button>' +
+            '<button type="button" class="btn btn-primary openMenuList" value="' + data[i].restaurantId + '">Wyświetl Liste Menu</button>' +
             '</div>' +
             '</li>';
     }
     htmlToInsert += '</ul>';
     $(".mainContext").html(htmlToInsert);
-    handleShowMenuButtons();
+    handleShowMenuListButtons();
 }
 
-handleShowMenuButtons = function () {
+handleShowMenuListButtons = function () {
 
-    $(".openMenu").on("click", function () {
+    $(".openMenuList").on("click", function () {
         let restaurant = $(this).val();
-        window.location = 'menu.html?restaurantId=' + restaurant;
+        window.location = 'menuList.html?restaurantId=' + restaurant;
     });
 }
