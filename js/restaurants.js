@@ -24,6 +24,7 @@ generateRestaurantList = function (data) {
             data[i].addressDTO.city + ', ul. ' + data[i].addressDTO.street + ' ' + data[i].addressDTO.number +
             '</span>' +
             '<button type="button" class="btn btn-primary openMenuList" value="' + data[i].restaurantId + '">Wyświetl Liste Menu</button>' +
+            '<input type="hidden" class="restaurantName' + data[i].restaurantId + '" value="' + data[i].name + '"></input>' +
             '</div>' +
             '</li>';
     }
@@ -36,6 +37,7 @@ handleShowMenuListButtons = function () {
 
     $(".openMenuList").on("click", function () {
         let restaurant = $(this).val();
-        window.location = 'menuList.html?restaurantId=' + restaurant;
+        let restaurantName = $(".restaurantName" + restaurant).val();
+        window.location = 'menuList.html?restaurantId=' + restaurant + '&name=' + restaurantName;
     });
 }
