@@ -2,41 +2,42 @@ $(document).ready(function(){
     let basicUrl = 'http://localhost:8080';
 
     let urlParams = new URLSearchParams(window.location.search);
-    let restaurantId = urlParams.get("restaurantId");
+    let menuId = urlParams.get("menuId");
+    let menuName = urlParams.get("name");
+
+    $("#menuTitle").html("Menu: " + menuName);
 
     $.get({
-        url: basicUrl + "/food-app/menu/" + restaurantId
+        url: basicUrl + "/food-app/food/" + menuId
     }).done(function (data) {
         console.log(data);
-        generateMenuList(data);
+        generateFoodList(data);
 
     }).fail(function () {
         alert("cos poszlo nie tak");
     });
 });
 
-generateMenuList = function (data) {
-    let htmlToInsert = '<ul class="list-group">';
+generateFoodList = function (data) {
+    let htmlToInsert = '';
     for (let i = 0; i < data.length; i++) {
-        htmlToInsert += '<li class="list-group-item">' +
-            '<div class="d-flex justify-content-between">' +
-            '<span>' +
-            data[i].name + ' - ' +
-            data[i].category + 
-            '</span>' +
-            '<button type="button" class="btn btn-primary openMenu" value="' + data[i].menuId + '">Wyświetl Menu</button>' +
+        htmlToInsert += '<div class="card mx-3" style="width: 18rem;">' +
+            '<img src="resources/img/logo.jpg" class="card-img-top" alt="...">' +
+            '<div class="card-body text-center">' +
+            '<h5 class="card-title">' + data[i].name + '</h5>' +
+            '<p class="card-text">' + data[i].description +'</p>' +
+            '<button type="button" class="btn btn-primary">Zamów</button>' +
             '</div>' +
-            '</li>';
+            '</div>';
     }
-    htmlToInsert += '</ul>';
     $(".mainContext").html(htmlToInsert);
-    handleShowMenuButton();
+    handleShowFoodsButton();
 }
 
-handleShowMenuButton = function () {
+handleShowFoodsButton = function () {
 
-    $(".openMenu").on("click", function () {
+    $(".openFoods").on("click", function () {
         let restaurant = $(this).val();
-        window.location = 'menuList.html?restaurantId=' + restaurant;
+        window.location = 'foods.html?menuId=' + restaurant;
     });
 }

@@ -28,6 +28,7 @@ generateMenuList = function (data) {
             data[i].category + 
             '</span>' +
             '<button type="button" class="btn btn-primary openMenu" value="' + data[i].menuId + '">Wyświetl Menu</button>' +
+            '<input type="hidden" class="menuName' + data[i].menuId + '" value="' + data[i].name + '"></input>' +
             '</div>' +
             '</li>';
     }
@@ -39,7 +40,8 @@ generateMenuList = function (data) {
 handleShowMenuButton = function () {
 
     $(".openMenu").on("click", function () {
-        let restaurant = $(this).val();
-        window.location = 'menu.html?restaurantId=' + restaurant;
+        let menu = $(this).val();
+        let menuName = $(".menuName" + menu).val();
+        window.location = 'menu.html?menuId=' + menu + '&name=' + menuName;
     });
 }
