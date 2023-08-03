@@ -72,7 +72,7 @@ handleOrderButton = function () {
                 '/><button ' +
                 'type="button"' +
                 'class="btn btn-danger deleteOrder"' +
-                'value="' + orderList[key].foodId +'"' +
+                'value="' + orderList[key].foodId + '"' +
                 '>Usuń' +
                 '</button>' +
                 '</div>';
@@ -80,11 +80,11 @@ handleOrderButton = function () {
             $("#orderList").append(content);
         }
         $(".deleteOrder").on("click", deleteOrder);
-        
+
     });
 }
 
-deleteOrder = function() {
+deleteOrder = function () {
     let currentValue = $(this).val();
     $("#orderFormGroup" + currentValue).remove();
     orderList = orderList.filter(order => order.foodId != currentValue);
@@ -92,42 +92,36 @@ deleteOrder = function() {
     if (orderList.length <= 0) {
         $("#makeOrder").attr("hidden", true);
     }
-    
+
 }
 
-makeOrderToBackend = function() {
+makeOrderToBackend = function () {
     for (let key in orderList) {
         let foodId = orderList[key].foodId;
         orderList[key].quantity = $("#quantity" + foodId).val();
     }
 
-    console.log("orderList: " + orderList);
-    console.log("JSON: " + JSON.stringify(orderList));
-
     let tableToOrder = [];
 
     orderList.forEach(value => {
         tableToOrder.push({
-            foodId : value.foodId,
-            quantity : value.quantity
+            foodId: value.foodId,
+            quantity: value.quantity
         });
     })
-
-    console.log("tableToOrder: " + tableToOrder);
 
     const settings = {
         url: basicUrl + "/food-app/app-order/new",
         data: JSON.stringify(orderList),
         contentType: 'application/json',
-        dataType: 'json', 
-        success: function(response) {
-          console.log('Użytkownik zarejestrowany: ', response);
-        },
-        error: function(xhr, status, error) {
-          console.error('Wystąpił błąd podczas rejestracji: ', error);
-        }
-      };
+        dataType: 'json'
+    };
 
 
-    $.post(settings);
+    $.post(settings)
+        .done(function (data) {
+            alert('Twoje zamówienie zostało utworzone. Możesz je sprawdzić w sekcji "Moje Zamówienia"');
+        }).fail(function () {
+            console.error('Wystąpił błąd podczas rejestracji: ', error);
+        });
 }
