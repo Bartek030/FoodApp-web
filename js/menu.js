@@ -114,14 +114,15 @@ makeOrderToBackend = function () {
         url: basicUrl + "/food-app/app-order/new",
         data: JSON.stringify(orderList),
         contentType: 'application/json',
-        dataType: 'json'
+        dataType: 'json',
+        success: function (response) {
+            alert('Twoje zamówienie zostało utworzone. Możesz je sprawdzić w sekcji "Moje Zamówienia"');
+        },
+        error: function (error) {
+            alert('Nie udało się utworzyć zamówienia');
+        }
     };
 
 
-    $.post(settings)
-        .done(function (data) {
-            alert('Twoje zamówienie zostało utworzone. Możesz je sprawdzić w sekcji "Moje Zamówienia"');
-        }).fail(function () {
-            console.error('Wystąpił błąd podczas rejestracji: ', error);
-        });
+    $.post(settings);
 }

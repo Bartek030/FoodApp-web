@@ -50,7 +50,7 @@
 
             <div class="sidebar-links">
                 <ul>
-                    <li>Znajdź restauracje</li>
+                    <a href="restaurants.html"><li>Znajdź restauracje</li></a>
                     <a href="appOrderDetail.html"><li>Moje zamówienia</li></a>
                 </ul>
             </div>
@@ -58,7 +58,8 @@
 
         <main>
             <div class="mainBox">
-                ZAMOWIENIE DETALE
+                <div class="w-100 text-center h2">Złożone zamówienia</div>
+                <div id="orderListContent"></div>
             </div>
 
             <footer>
@@ -77,6 +78,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="js/menu.js"></script>
+        <script src="js/appOrderDetail.js"></script>
     </body>
 </html>
