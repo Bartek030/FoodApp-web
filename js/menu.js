@@ -116,7 +116,8 @@ makeOrderToBackend = function () {
         contentType: 'application/json',
         dataType: 'json',
         success: function (response) {
-            alert('Twoje zamówienie zostało utworzone. Możesz je sprawdzić w sekcji "Moje Zamówienia"');
+            console.log(response);
+            alert('Twoje zamówienie: [' + response.number + '] zostało utworzone. Możesz je sprawdzić w sekcji "Moje Zamówienia"');
         },
         error: function (error) {
             alert('Nie udało się utworzyć zamówienia');
