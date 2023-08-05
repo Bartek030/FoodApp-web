@@ -13,7 +13,7 @@
             content="Applikacja do sprzedawania i zamawiania posiłków"
         />
 
-        <title>Food App</title>
+        <title>Menu</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,7 +50,9 @@
 
             <div class="sidebar-links">
                 <ul>
-                    <a href="ownerRestaurants.html"><li>Moje restauracje</li></a>
+                    <a href="ownerRestaurants.html"
+                        ><li>Moje restauracje</li></a
+                    >
                     <a href="ownerOrderDetail.html"><li>Zamówienia</li></a>
                 </ul>
             </div>
@@ -58,16 +60,18 @@
 
         <main>
             <div class="mainBox">
-                <div class="w-100 text-center h2" id="menuListTitle"></div>
-                <div class="mainContext"></div>
+                <div class="w-100 text-center h2 mb-5" id="menuTitle"></div>
                 <button
                     type="submit"
-                    class="btn btn-success mt-4 w-100"
+                    id="addRestaurant"
+                    class="btn btn-success mb-4 w-100"
                     data-bs-toggle="modal"
-                    data-bs-target="#newMenuModal"
+                    data-bs-target="#newFoodModal"
                 >
-                    Dodaj Menu
+                    Dodaj Pozycje
                 </button>
+                <div class="mainContext d-flex overflow-auto"></div>
+                
             </div>
 
             <footer>
@@ -79,12 +83,12 @@
             </footer>
         </main>
 
-        <!-- Add Menu Modal -->
+        <!-- Add Food Modal -->
         <div
             class="modal fade"
-            id="newMenuModal"
+            id="newFoodModal"
             tabindex="-1"
-            aria-labelledby="newMenuModalLabel"
+            aria-labelledby="newFoodModalLabel"
             aria-hidden="true"
         >
             <div class="modal-dialog">
@@ -92,7 +96,7 @@
                     <div class="modal-header">
                         <h1
                             class="modal-title fs-5"
-                            id="newMenuModalLabel"
+                            id="newFoodModalLabel"
                         >
                             Dodaj Menu
                         </h1>
@@ -104,7 +108,7 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <form id="newMenuForm" method="POST" action="http://localhost:8080/food-app/menu/new">
+                        <form id="newFoodForm" method="POST" action="http://localhost:8080/food-app/food/new">
                             <div class="form-group mb-4">
                                 <label for="name">Nazwa</label>
                                 <input
@@ -116,16 +120,25 @@
                                 />
                             </div>
                             <div class="form-group mb-4">
-                                <label for="category">Kategoria</label>
+                                <label for="price">Cena</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="category"
-                                    name="category"
-                                    placeholder="Podaj kategorie"
+                                    id="price"
+                                    name="price"
+                                    placeholder="Podaj cenę"
                                 />
                             </div>
-                            
+                            <div class="form-group mb-4">
+                                <label for="description">Opis</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="description"
+                                    name="description"
+                                    placeholder="Opis"
+                                />
+                            </div>
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">
                                     Dodaj
@@ -137,6 +150,7 @@
             </div>
         </div>
 
+
         <!-- JS Scripts JQuery and for styles -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -144,6 +158,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="js/ownerRestaurantMenuList.js"></script>
+        <script src="js/ownerMenu.js"></script>
     </body>
 </html>

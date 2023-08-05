@@ -67,6 +67,6 @@ handleShowMenuButton = function () {
     $(".openMenu").on("click", function () {
         let menu = $(this).val();
         let menuName = $(".menuName" + menu).val();
-        window.location = 'menu.html?menuId=' + menu + '&name=' + menuName;
+        window.location = 'ownerMenu.html?menuId=' + menu + '&name=' + menuName;
     });
 }
