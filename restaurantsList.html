@@ -13,7 +13,7 @@
             content="Applikacja do sprzedawania i zamawiania posiłków"
         />
 
-        <title>Food App</title>
+        <title>Restauracje</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,21 +44,69 @@
     <body>
         <nav>
             <div class="sidebar-top">
-                <img class="logo" src="resources/img/logo.jpg" alt="logo">
+                <img class="logo" src="resources/img/logo.jpg" alt="logo" />
                 <h3>Food App</h3>
             </div>
 
             <div class="sidebar-links">
                 <ul>
-                    <li>Znajdź restauracje</li>
-                    <li>Moje zamówienia</li>
+                    <a href="restaurants.html"><li>Znajdź restauracje</li></a>
+                    <a href="appOrderDetail.html"><li>Moje zamówienia</li></a>
                 </ul>
             </div>
         </nav>
-        
+
         <main>
-            <div class="mainBox ">
-                <div class="mainTitle text-center">Witaj użytkowniku</div>
+            <div class="mainBox">
+                <div class="input-group mb-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Podaj adres</span>
+                    </div>
+                    <input
+                        type="text"
+                        id="country"
+                        class="form-control"
+                        placeholder="Kraj"
+                    />
+                    <input
+                        type="text"
+                        id="city"
+                        class="form-control"
+                        placeholder="Miasto"
+                    />
+                    <input
+                        type="text"
+                        id="street"
+                        class="form-control"
+                        placeholder="Ulica"
+                    />
+                    <button
+                        type="button"
+                        id="findRestaurants"
+                        class="btn btn-primary"
+                    >
+                        Szukaj
+                    </button>
+                </div>
+                <div class="mainContext"></div>
+                <ul
+                    class="pagination justify-content-center mt-3"
+                    id="restaurantPagination"
+                >
+                    <li class="page-item" id="previousPage">
+                        <a
+                            class="page-link"
+                            id="previousLink"
+                            href="#"
+                            tabindex="-1"
+                            aria-disabled="true"
+                            >Previous</a
+                        >
+                    </li>
+                    <li class="page-item" id="nextPage">
+                        <a class="page-link" id="nextLink" href="#">Next</a>
+                    </li>
+                </ul>
             </div>
 
             <footer>
@@ -70,8 +118,6 @@
             </footer>
         </main>
 
-    
-
         <!-- JS Scripts JQuery and for styles -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -79,6 +125,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="js/index.js"></script>
+        <script src="js/restaurantsList.js"></script>
     </body>
 </html>
