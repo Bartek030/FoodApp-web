@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="keywords"
+            content="zamów, jedzenie, posiłek, obiad, dowóz, sprzedaj, wystaw"
+        />
+        <meta
+            name="description"
+            content="Applikacja do sprzedawania i zamawiania posiłków"
+        />
+
+        <title>Restauracje</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <nav>
+            <div class="sidebar-top">
+                <img class="logo" src="resources/img/logo.jpg" alt="logo" />
+                <h3>Food App</h3>
+            </div>
+
+            <div class="sidebar-links">
+                <ul>
+                    <a href="restaurants.html"><li>Znajdź restauracje</li></a>
+                    <a href="appOrderDetail.html"><li>Moje zamówienia</li></a>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="mainBox">
+                <div class="input-group mb-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Podaj adres</span>
+                    </div>
+                    <input
+                        type="text"
+                        id="country"
+                        class="form-control"
+                        placeholder="Kraj"
+                    />
+                    <input
+                        type="text"
+                        id="city"
+                        class="form-control"
+                        placeholder="Miasto"
+                    />
+                    <input
+                        type="text"
+                        id="street"
+                        class="form-control"
+                        placeholder="Ulica"
+                    />
+                    <button
+                        type="button"
+                        id="findRestaurants"
+                        class="btn btn-primary"
+                    >
+                        Szukaj
+                    </button>
+                </div>
+                <div class="mainContext"></div>
+                <ul
+                    class="pagination justify-content-center mt-3"
+                    id="restaurantPagination"
+                >
+                    <li class="page-item" id="previousPage">
+                        <a
+                            class="page-link"
+                            id="previousLink"
+                            href="#"
+                            tabindex="-1"
+                            aria-disabled="true"
+                            >Previous</a
+                        >
+                    </li>
+                    <li class="page-item" id="nextPage">
+                        <a class="page-link" id="nextLink" href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+
+            <footer>
+                <div>
+                    2023
+                    &copy;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Autor:&ensp;Bartłomiej
+                    Święs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kontakt:&ensp;bartlomiejswies@gmail.com
+                </div>
+            </footer>
+        </main>
+
+        <!-- JS Scripts JQuery and for styles -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="js/restaurantsList.js"></script>
+    </body>
+</html>
