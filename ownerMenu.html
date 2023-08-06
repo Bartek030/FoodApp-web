@@ -71,7 +71,6 @@
                     Dodaj Pozycje
                 </button>
                 <div class="mainContext d-flex overflow-auto"></div>
-                
             </div>
 
             <footer>
@@ -94,10 +93,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1
-                            class="modal-title fs-5"
-                            id="newFoodModalLabel"
-                        >
+                        <h1 class="modal-title fs-5" id="newFoodModalLabel">
                             Dodaj Menu
                         </h1>
                         <button
@@ -108,7 +104,11 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <form id="newFoodForm" method="POST" action="http://localhost:8080/food-app/food/new">
+                        <form
+                            id="newFoodForm"
+                            method="POST"
+                            action="http://localhost:8080/food-app/food/new"
+                        >
                             <div class="form-group mb-4">
                                 <label for="name">Nazwa</label>
                                 <input
@@ -150,6 +150,49 @@
             </div>
         </div>
 
+        <!-- Add Picture Modal -->
+        <div
+            class="modal fade"
+            id="pictureModal"
+            tabindex="-1"
+            aria-labelledby="pictureModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="pictureModalLabel">
+                            Dodaj Zdjęcie
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addPictureForm">
+                            <div class="form-group mb-4">
+                                <label for="fileInput">Wybierz plik (.png)</label>
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="fileInput"
+                                    name="file"
+                                    accept=".png"
+                                />
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">
+                                    Dodaj
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- JS Scripts JQuery and for styles -->
         <script
