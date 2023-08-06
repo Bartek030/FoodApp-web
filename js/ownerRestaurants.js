@@ -46,11 +46,11 @@ generateRestaurantList = function (data) {
             '<button type="button" class="btn btn-primary" value="' + data[i].restaurantId + '">Wyświetl Menu</button>' +
             '</a>' +
 
-            '<a href="deliveryAddressList.html?restaurantId=' + data[i].restaurantId + '">' +
+            '<a href="ownerDeliveryAddressList.html?restaurantId=' + data[i].restaurantId + '&name=' + data[i].name + '">' +
             '<button type="button" class="btn btn-warning" value="' + data[i].restaurantId + '">Wyświetl adresy dowozów</button>' +
             '</a>' +
 
-            '<a href="restaurantOrderList.html?restaurantId=' + data[i].restaurantId + '">' +
+            '<a href="ownerRestaurantOrderList.html?restaurantId=' + data[i].restaurantId + '&name=' + data[i].name + '">' +
             '<button type="button" class="btn btn-info" value="' + data[i].restaurantId + '">Wyświetl zamówienia</button>' +
             '</a>' +
 

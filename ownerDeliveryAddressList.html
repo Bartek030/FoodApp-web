@@ -13,7 +13,7 @@
             content="Applikacja do sprzedawania i zamawiania posiłków"
         />
 
-        <title>Menu</title>
+        <title>Food App</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,9 +50,7 @@
 
             <div class="sidebar-links">
                 <ul>
-                    <a href="ownerRestaurants.html"
-                        ><li>Moje restauracje</li></a
-                    >
+                    <a href="ownerRestaurants.html"><li>Moje restauracje</li></a>
                     <a href="ownerOrderDetail.html"><li>Zamówienia</li></a>
                 </ul>
             </div>
@@ -60,17 +58,16 @@
 
         <main>
             <div class="mainBox">
-                <div class="w-100 text-center h2 mb-5" id="menuTitle"></div>
+                <div class="w-100 text-center h2" id="menuListTitle"></div>
+                <div class="mainContext"></div>
                 <button
                     type="submit"
-                    id="addRestaurant"
-                    class="btn btn-success mb-4 w-100"
+                    class="btn btn-success mt-4 w-100"
                     data-bs-toggle="modal"
-                    data-bs-target="#newFoodModal"
+                    data-bs-target="#newAddressModal"
                 >
-                    Dodaj Pozycje
+                    Dodaj Adres
                 </button>
-                <div class="mainContext d-flex overflow-auto"></div>
             </div>
 
             <footer>
@@ -82,87 +79,22 @@
             </footer>
         </main>
 
-        <!-- Add Food Modal -->
+        <!-- Add Address Modal -->
         <div
             class="modal fade"
-            id="newFoodModal"
+            id="newAddressModal"
             tabindex="-1"
-            aria-labelledby="newFoodModalLabel"
+            aria-labelledby="newAddressModalLabel"
             aria-hidden="true"
         >
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="newFoodModalLabel">
-                            Dodaj Menu
-                        </h1>
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <div class="modal-body">
-                        <form
-                            id="newFoodForm"
-                            method="POST"
-                            action="http://localhost:8080/food-app/food/new"
+                        <h1
+                            class="modal-title fs-5"
+                            id="newAddressModalLabel"
                         >
-                            <div class="form-group mb-4">
-                                <label for="name">Nazwa</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Podaj nazwę"
-                                />
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="price">Cena</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="price"
-                                    name="price"
-                                    placeholder="Podaj cenę"
-                                />
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="description">Opis</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="description"
-                                    name="description"
-                                    placeholder="Opis"
-                                />
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">
-                                    Dodaj
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add Picture Modal -->
-        <div
-            class="modal fade"
-            id="pictureModal"
-            tabindex="-1"
-            aria-labelledby="pictureModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="pictureModalLabel">
-                            Dodaj Zdjęcie
+                            Dodaj Adres
                         </h1>
                         <button
                             type="button"
@@ -172,17 +104,48 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <form id="addPictureForm">
+                        <form id="newAddressForm" method="POST" action="http://localhost:8080/food-app/delivery-address/new">
                             <div class="form-group mb-4">
-                                <label for="fileInput">Wybierz plik (.png)</label>
+                                <label for="country">Kraj</label>
                                 <input
-                                    type="file"
+                                    type="text"
                                     class="form-control"
-                                    id="fileInput"
-                                    name="file"
-                                    accept=".png"
+                                    id="country"
+                                    name="country"
+                                    placeholder="Podaj kraj"
                                 />
                             </div>
+                            <div class="form-group mb-4">
+                                <label for="city">Miasto</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="city"
+                                    name="city"
+                                    placeholder="Podaj miasto"
+                                />
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="street">Ulica</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="street"
+                                    name="street"
+                                    placeholder="Podaj miasto"
+                                />
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="deliveryTime">Czas dostawy</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="deliveryTime"
+                                    name="deliveryTime"
+                                    placeholder="Podaj czas dostawy"
+                                />
+                            </div>
+                            
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">
                                     Dodaj
@@ -201,6 +164,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="js/ownerMenu.js"></script>
+        <script src="js/ownerDeliveryAddressList.js"></script>
     </body>
 </html>
