@@ -59,8 +59,25 @@
 
         <main>
             <div class="mainBox">
-                <div class="w-100 text-center h2 mb-5" id="menuOrdersTitle"></div>
-                <div id="orderListContent"></div>
+                <div class="input-group mb-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Podaj miasto</span>
+                    </div>
+                    <input
+                        type="text"
+                        id="cityName"
+                        class="form-control"
+                        placeholder="Miasto"
+                    />
+                    <button
+                        type="button"
+                        id="weatherInfo"
+                        class="btn btn-primary"
+                    >
+                        Szukaj
+                    </button>
+                </div>
+                <div class="mainContext"></div>
             </div>
 
             <footer>
@@ -79,6 +96,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="js/ownerRestaurantOrderList.js"></script>
+        <script src="js/weather.js"></script>
     </body>
 </html>
